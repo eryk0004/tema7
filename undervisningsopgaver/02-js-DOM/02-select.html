@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        main {
+            box-sizing: border-box;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        header,
+        footer {
+            text-align: center;
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            grid-gap: 1rem;
+        }
+
+        article,
+        header,
+        footer {
+            border: 2px solid black;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        Arkitektur
+    </header>
+    <main>
+        <h2>Arkitekturens skønhed</h2>
+        <section>
+
+            <article>
+                <img src="https://placeimg.com/400/400/arch/grayscale" alt="arkitektur">
+                <h3>Første billede</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae dolorum, libero iure minus eius. Quo nemo vel a, nam nihil, non delectus eaque architecto vero laboriosam mollitia, pariatur ab placeat. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci eveniet itaque earum quos sint rerum dolorum quidem error iste, eum, quas dolorem enim voluptatem similique soluta. In, fuga, explicabo! Praesentium.</p>
+            </article>
+
+            <article>
+                <img src="https://placeimg.com/400/400/arch/grayscale" alt="arkitektur">
+                <h3>Andet billede</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae dolorum, libero iure minus eius. Quo nemo vel a, nam nihil, non delectus eaque architecto vero laboriosam mollitia, pariatur ab placeat. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit eius, non minima. Rerum maiores quisquam ad fuga ipsum dignissimos aliquam, voluptatum ducimus, iste sed, quidem adipisci exercitationem! Eius sapiente, quis.</p>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <h3> this is the footer</h3>
+    </footer>
+    <script>
+        const titel = document.querySelector("header");
+        console.log(titel);
+
+        // tag fat i h2
+
+        const overskriftH2 = document.querySelector("h2");
+        console.log(overskriftH2);
+
+        // tag fat i articleIMG
+        const articleIMG = document.querySelector("article img ");
+        console.log(articleIMG);
+
+        // tag fat i h3
+
+        const articleH3 = document.querySelector("article h3");
+        console.log(articleH3);
+
+        // tag fat p
+        const articleP = document.querySelector("article p");
+        console.log(articleP);
+
+        // tag fat i footer
+        const footer = document.querySelector("footer");
+        console.log(footer);
+
+        // tag fat i section
+        const section = document.querySelector("section");
+        console.log(section);
+
+        // tag fat i første article
+        const article1 = document.querySelector("section article:nth-child(1)");
+        console.log(article1);
+
+        // tag fat i anden article
+        const article2 = document.querySelector("section article:nth-child(2) img");
+        console.log(article2);
+
+        //        const titel = document.querySelector("header");
+        //        console.log(titel);
+        //        titel.textContent = "Billedegalleri";
+        //        titel.innerHTML = "<h1>Billede</h1>";
+        //
+        //        const pic1 = document.querySelector("article img");
+        //        console.log(pic1);
+        //        pic1.alt = "billede af arktitektur";
+
+    </script>
+</body>
+
+</html>
