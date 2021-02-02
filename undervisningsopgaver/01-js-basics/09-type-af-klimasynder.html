@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p>Rejsetid</p>
+    <input type="text" id="time">
+    <button>Indtast og beregn dit Co2 udslip ud fra din rejsetid med flyet</button>
+
+    <script>
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+
+            let time = document.querySelector("#time").value;
+            let co2 = 109;
+            let co2UdledtiKgVedFlyrejse = time * co2;
+            let resultat;
+
+
+            if (co2UdledtiKgVedFlyrejse < 100) {
+                resultat = `Ved ${time} timers flyrejse har du udeledt ${co2UdledtiKgVedFlyrejse} kg CO2. Tæt på Thunberg`;
+            } else if (co2UdledtiKgVedFlyrejse > 200) {
+                resultat = `Ved ${time} timers flyrejse har du udeledt ${co2UdledtiKgVedFlyrejse} kg CO2. Ja ja, du behøver ikke at melde dig ud af Å`;
+            } else if (co2UdledtiKgVedFlyrejse > 600) {
+                resultat = `Ved ${time} timers flyrejse har du udeledt ${co2UdledtiKgVedFlyrejse} kg CO2. Det er godt for turismen i Nordeuropa`;
+            } else {
+                (co2UdledtiKgVedFlyrejse < 600)
+                resultat = `Ved ${time} timers flyrejse har du udeledt ${co2UdledtiKgVedFlyrejse} kg CO2. Når ja, vi kan altid kolonisere en anden planet`;
+
+                console.log(resultat);
+
+            }
+
+        }
+
+        let time = document.querySelector("#time").value;
+        let cotwo = 109;
+        let co2UdledtiKgVedFlyrejse = time * cotwo;
+        let resultat;
+
+        if (areal < 100) {
+            resultat = "Arealet er for lille";
+        } else if (areal < 200) {
+            resultat = "Arealet er ok";
+        } else {
+            resultat = "Arealet er for stort";
+        }
+
+        console.log(resultat);
+
+    </script>
+</body>
+
+</html>
