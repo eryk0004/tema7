@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        img {
+            width: 100%;
+        }
+
+        footer {
+            text-align: center;
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-gap: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        Titel
+    </header>
+    <main>
+        <h2>Undertitel</h2>
+        <section>
+            <article><img src="https://placeimg.com/640/480/arch" alt="">
+                <h3>Article 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, natus quas commodi, iusto nam laboriosam nihil corrupti inventore nulla culpa accusantium beatae quae nesciunt cumque, facere dolore est voluptate similique.</p>
+            </article>
+            <article><img src="https://placeimg.com/640/480/tech" alt="">
+                <h3>Article 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, natus quas commodi, iusto nam laboriosam nihil corrupti inventore nulla culpa accusantium beatae quae nesciunt cumque, facere dolore est voluptate similique.</p>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>This is the footer</p>
+    </footer>
+    <script>
+        // Hive fat i header
+        const titel = document.querySelector("header");
+        console.log(titel);
+
+        titel.textContent = "Billedgalleri";
+        titel.innerHTML = "<h1>Billeder</h1>";
+
+        //Hive fat i section
+        const section = document.querySelector("section");
+        console.log(section);
+
+        // Hive fat i h2
+        const h2 = document.querySelector("h2");
+        console.log(h2);
+
+        //        h2.innerHTML = "<h2>Sektionsoverskrift</h2>";
+
+        // Hive fat i article 1
+        const article1 = document.querySelector("section article:nth-child(1)");
+        console.log(article1);
+
+        //Hive fat i article 2
+        const article2 = document.querySelector("section article:nth-child(2)");
+        console.log(article2);
+
+        // Hive fat i article 1's overskrift
+        const articleOverskrift1 = document.querySelector("section article:nth-child(1) h3");
+        console.log(articleOverskrift1);
+
+        articleOverskrift1.innerHTML = "<h3>Artikeloverskrift 1</h3>";
+
+        // Hive fat i article 2's overskrift
+        const articleOverskrift2 = document.querySelector("section article:nth-child(2) h3");
+        console.log(articleOverskrift2);
+
+        articleOverskrift2.innerHTML = "<h3>Artikeloverskrift 2</h3>";
+
+        // Hive fat i articles billede
+        const articleIMG = document.querySelector("article img");
+        console.log(articleIMG);
+
+        // Hive fat i P1
+        const P1 = document.querySelector("section article:nth-child(1) p");
+        console.log(P1);
+
+        P1.innerHTML = "<p>Tekst til artikel 1. Blabla. </p>"
+
+        // Hive fat i P2
+        const P2 = document.querySelector("section article:nth-child(2) p");
+        console.log(P2);
+
+        P2.innerHTML = "<p>Tekst til artikel 2. Blablablabla hej hejj. </p>"
+
+        //Hive fat i footer
+        const footer = document.querySelector("footer");
+        console.log(footer);
+
+    </script>
+</body>
+
+</html>
