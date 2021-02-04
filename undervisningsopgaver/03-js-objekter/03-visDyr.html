@@ -10,8 +10,11 @@
 
 <body>
     <article id="article">
-        <p></p>
+        <h3></h3>
         <img src="" alt="">
+        <p>Type:</p>
+        <p class="p2">Levested:</p>
+
     </article>
 
     <script>
@@ -34,10 +37,14 @@
 
 
             const destination = document.querySelector("#article");
-            destination.querySelector("p").textContent = `dyr: ${dyr.navn}, type: ${dyr.type}, levested: ${dyr.levested}`;
-
+            //tilføje h3 tekst
+            destination.querySelector("h3").textContent = "Gris";
+            // tilføje p-test til eksiterende tekst
+            destination.querySelector("p").textContent += " pattedyr";
+            destination.querySelector(".p2").textContent += " svinefarm";
 
             destination.querySelector("img").src = dyr.billede;
+
 
         }
 
