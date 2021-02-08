@@ -29,7 +29,7 @@
         border-radius: 25px;
     }
 
-    .troende {
+    .valgt {
         cursor: pointer;
         background-color: red;
     }
@@ -88,8 +88,11 @@
 
         function filtrerPersoner() {
             filter = this.dataset.troende;
+            document.querySelector(".valgt").classList.remove("valgt");
+            this.classList.add("valgt")
             visPersoner();
             header.textContent = this.textContent;
+
         }
 
 
