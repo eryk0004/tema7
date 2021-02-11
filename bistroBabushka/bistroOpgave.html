@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bistro Babushka</title>
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400&display=swap" rel="stylesheet">
+
+    <style>
+        img {
+            max-width: 100%;
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 1rem;
+        }
+
+
+        body {
+            background-color: #EEF9F7;
+        }
+
+        article {
+            padding: 1rem;
+            background-color: #093A45;
+            cursor: pointer;
+        }
+
+        img {
+            border-radius: 10px;
+        }
+
+        .valgt {
+            color: black;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1rem;
+        }
+
+        section,
+        h1 {
+            max-width: 1200px;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        section {
+            margin-top: 10px;
+        }
+
+        header {
+            margin-top: 2rem;
+
+        }
+
+        h1 {
+            color: #36BB9B;
+        }
+
+        p {
+            color: #EEF9F7;
+            font-family: 'Darker Grotesque', sans-serif;
+            font-size: 1.2rem;
+        }
+
+        .navn,
+        h1 {
+            font-family: 'Archivo Black', sans-serif;
+        }
+
+        .navn {
+            color: #36BB9B;
+        }
+
+        .overskrift {
+            color: #093A45;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        button {
+            background-color: #36BB9B;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            font-family: 'Darker Grotesque', sans-serif;
+            font-size: 1.5rem;
+        }
+
+        button:hover {
+            background-color: #093A45;
+            color: white;
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .buttonTo {
+            background-color: #36BB9B;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 5.5px 11px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 10px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            font-family: 'Darker Grotesque', sans-serif;
+            font-size: 1.5rem;
+        }
+
+        .buttonTo:hover {
+            background-color: #EEF9F7;
+            color: #093A45;
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        footer {
+            max-width: 1200px;
+            position: relative;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+
+            background-color: #3B3B3B;
+            color: white;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 2rem;
+            background-color: #093A45;
+
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        @media (max-width: 700px) and (min-width: 350px) {
+
+            nav {
+                overflow-x: scroll;
+                scroll-snap-type: x mandatory;
+            }
+
+            button {
+                flex-basis: 50%;
+                flex-shrink: 0;
+                scroll-snap-align: center;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1 class="overskrift">Bistro Babushka</h1>
+    <header>
+        <nav>
+            <button data-kategori="alle" class="valgt">Menu</button>
+            <button data-kategori="forretter">Forretter</button>
+            <button data-kategori="hovedretter">Hovedretter</button>
+            <button data-kategori="desserter">Desserter</button>
+            <button data-kategori="drikkevarer">Drikkevarer</button>
+        </nav>
+        <h1>Menu</h1>
+    </header>
+    <section id="liste">
+    </section>
+    <template>
+        <article class="ret">
+            <img src="" alt="" class="billede">
+            <h2 class="navn"></h2>
+            <p class="kortbeskrivelse"></p>
+            <p class="pris"></p>
+            <button class="buttonTo">Læs mere</button>
+        </article>
+
+
+    </template>
+
+
+    <footer>
+        <div class="footer-content">
+            <p>Bistro Babushka
+            <p>Adresse: Grønnestræde 90, København S</p>
+            <p>Åbningstider: mandag - fredag 11:00 - 22:00</p>
+        </div>
+
+    </footer>
+
+    <script>
+        const header = document.querySelector("header h1");
+        const medieurl = "https://babushka-dd8a.restdb.io/media/";
+        const myHeaders = {
+            "x-apikey": "600ec2fb1346a1524ff12de4"
+        }
+
+        document.addEventListener("DOMContentLoaded", start)
+        let retter;
+        let filter = "alle";
+
+        //første funktion der kaldes efter Dom er loaded
+
+        function start() {
+            const filterKnapper = document.querySelectorAll("nav button");
+            filterKnapper.forEach(knap => knap.addEventListener("click", filtrerRetter));
+            loadJSON();
+        }
+
+        function filtrerRetter() {
+            filter = this.dataset.kategori;
+            document.querySelector(".valgt").classList.remove("valgt");
+            this.classList.add("valgt")
+            visRetter();
+            header.textContent = this.textContent;
+
+        }
+
+
+        async function loadJSON() {
+            const JSONData = await fetch("https://babushka-dd8a.restdb.io/rest/menu", {
+                headers: myHeaders
+            });
+            retter = await JSONData.json();
+            console.log("Retter", retter);
+            visRetter();
+        }
+
+        function visRetter() {
+            //            console.log("vis");
+            //            console.log(json);
+
+            const dest = document.querySelector("#liste");
+            const skabelon = document.querySelector("template").content;
+            dest.textContent = "";
+            retter.forEach(ret => {
+                if (filter == ret.kategori || filter == "alle") {
+                    const klon = skabelon.cloneNode(true);
+                    klon.querySelector(".billede").src = medieurl + ret.billede[0];
+                    klon.querySelector(".navn").textContent = ret.navn;
+                    klon.querySelector(".kortbeskrivelse").textContent = ret.kortbeskrivelse;
+                    klon.querySelector(".pris").textContent = `${"Pris: "}` + ret.pris + `${",-"}`;
+
+                    klon.querySelector(".ret").addEventListener("click", () => visDetaljer(ret));
+
+                    dest.appendChild(klon);
+                }
+            })
+        }
+
+        function visDetaljer(hvad) {
+            location.href = `detailView.html?id=${hvad._id}`;
+
+        }
+
+    </script>
+</body>
+
+</html>
